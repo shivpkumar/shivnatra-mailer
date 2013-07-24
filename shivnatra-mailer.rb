@@ -3,6 +3,10 @@ require 'sinatra'
 require 'json'
 require 'pony'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 post '/' do
   data = JSON.parse(request.body.read, symbolize_names: true)
   Pony.mail(to: data[:to],
