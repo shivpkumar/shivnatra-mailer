@@ -8,7 +8,7 @@ post '/' do
   Pony.mail(to: data[:to],
             from: 'noreply@example.com',
             subject: data[:subject],
-            body: data[:body],
+            html_body: data[:body],
             :via => :smtp,
             via_options: {
               address: 'smtp.sendgrid.net',
